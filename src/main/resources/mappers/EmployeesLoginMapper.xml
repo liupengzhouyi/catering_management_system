@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.liupeng.catering_management_system.mapper.EmployeesLoginMapper" >
+  <resultMap id="BaseResultMap" type="cn.liupeng.catering_management_system.pojo.EmployeesLogin" >
+    <id column="employeesLoginID" property="employeesloginid" jdbcType="INTEGER" />
+    <result column="employeesID" property="employeesid" jdbcType="VARCHAR" />
+    <result column="loginDateTime" property="logindatetime" jdbcType="VARCHAR" />
+    <result column="IPAddress" property="ipaddress" jdbcType="VARCHAR" />
+    <result column="longitude" property="longitude" jdbcType="DOUBLE" />
+    <result column="latitude" property="latitude" jdbcType="DOUBLE" />
+    <result column="loginResults" property="loginresults" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    employeesLoginID, employeesID, loginDateTime, IPAddress, longitude, latitude, loginResults
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from employeesLoginTable
+    where employeesLoginID = #{employeesloginid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from employeesLoginTable
+    where employeesLoginID = #{employeesloginid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.liupeng.catering_management_system.pojo.EmployeesLogin" >
+    <selectKey resultType="java.lang.Integer" keyProperty="employeesloginid" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into employeesLoginTable (employeesID, loginDateTime, IPAddress, 
+      longitude, latitude, loginResults
+      )
+    values (#{employeesid,jdbcType=VARCHAR}, #{logindatetime,jdbcType=VARCHAR}, #{ipaddress,jdbcType=VARCHAR}, 
+      #{longitude,jdbcType=DOUBLE}, #{latitude,jdbcType=DOUBLE}, #{loginresults,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.liupeng.catering_management_system.pojo.EmployeesLogin" >
+    <selectKey resultType="java.lang.Integer" keyProperty="employeesloginid" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into employeesLoginTable
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="employeesid != null" >
+        employeesID,
+      </if>
+      <if test="logindatetime != null" >
+        loginDateTime,
+      </if>
+      <if test="ipaddress != null" >
+        IPAddress,
+      </if>
+      <if test="longitude != null" >
+        longitude,
+      </if>
+      <if test="latitude != null" >
+        latitude,
+      </if>
+      <if test="loginresults != null" >
+        loginResults,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="employeesid != null" >
+        #{employeesid,jdbcType=VARCHAR},
+      </if>
+      <if test="logindatetime != null" >
+        #{logindatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="ipaddress != null" >
+        #{ipaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null" >
+        #{longitude,jdbcType=DOUBLE},
+      </if>
+      <if test="latitude != null" >
+        #{latitude,jdbcType=DOUBLE},
+      </if>
+      <if test="loginresults != null" >
+        #{loginresults,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.liupeng.catering_management_system.pojo.EmployeesLogin" >
+    update employeesLoginTable
+    <set >
+      <if test="employeesid != null" >
+        employeesID = #{employeesid,jdbcType=VARCHAR},
+      </if>
+      <if test="logindatetime != null" >
+        loginDateTime = #{logindatetime,jdbcType=VARCHAR},
+      </if>
+      <if test="ipaddress != null" >
+        IPAddress = #{ipaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null" >
+        longitude = #{longitude,jdbcType=DOUBLE},
+      </if>
+      <if test="latitude != null" >
+        latitude = #{latitude,jdbcType=DOUBLE},
+      </if>
+      <if test="loginresults != null" >
+        loginResults = #{loginresults,jdbcType=INTEGER},
+      </if>
+    </set>
+    where employeesLoginID = #{employeesloginid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.liupeng.catering_management_system.pojo.EmployeesLogin" >
+    update employeesLoginTable
+    set employeesID = #{employeesid,jdbcType=VARCHAR},
+      loginDateTime = #{logindatetime,jdbcType=VARCHAR},
+      IPAddress = #{ipaddress,jdbcType=VARCHAR},
+      longitude = #{longitude,jdbcType=DOUBLE},
+      latitude = #{latitude,jdbcType=DOUBLE},
+      loginResults = #{loginresults,jdbcType=INTEGER}
+    where employeesLoginID = #{employeesloginid,jdbcType=INTEGER}
+  </update>
+</mapper>

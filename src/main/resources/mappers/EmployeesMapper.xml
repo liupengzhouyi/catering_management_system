@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.liupeng.catering_management_system.mapper.EmployeesMapper" >
+  <resultMap id="BaseResultMap" type="cn.liupeng.catering_management_system.pojo.Employees" >
+    <id column="employeesID" property="employeesid" jdbcType="INTEGER" />
+    <result column="employeesName" property="employeesname" jdbcType="VARCHAR" />
+    <result column="employeesPhoneNumber" property="employeesphonenumber" jdbcType="VARCHAR" />
+    <result column="employeesPasswordValue" property="employeespasswordvalue" jdbcType="VARCHAR" />
+    <result column="employeesRegisteredDate" property="employeesregistereddate" jdbcType="VARCHAR" />
+    <result column="employeesRegisteredTime" property="employeesregisteredtime" jdbcType="VARCHAR" />
+    <result column="isCancellation" property="iscancellation" jdbcType="INTEGER" />
+    <result column="employeesCancellationDate" property="employeescancellationdate" jdbcType="VARCHAR" />
+    <result column="employeesCancellationTime" property="employeescancellationtime" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    employeesID, employeesName, employeesPhoneNumber, employeesPasswordValue, employeesRegisteredDate, 
+    employeesRegisteredTime, isCancellation, employeesCancellationDate, employeesCancellationTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from employeesTable
+    where employeesID = #{employeesid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from employeesTable
+    where employeesID = #{employeesid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.liupeng.catering_management_system.pojo.Employees" >
+    <selectKey resultType="java.lang.Integer" keyProperty="employeesid" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into employeesTable (employeesName, employeesPhoneNumber, 
+      employeesPasswordValue, employeesRegisteredDate, 
+      employeesRegisteredTime, isCancellation, 
+      employeesCancellationDate, employeesCancellationTime
+      )
+    values (#{employeesname,jdbcType=VARCHAR}, #{employeesphonenumber,jdbcType=VARCHAR}, 
+      #{employeespasswordvalue,jdbcType=VARCHAR}, #{employeesregistereddate,jdbcType=VARCHAR}, 
+      #{employeesregisteredtime,jdbcType=VARCHAR}, #{iscancellation,jdbcType=INTEGER}, 
+      #{employeescancellationdate,jdbcType=VARCHAR}, #{employeescancellationtime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.liupeng.catering_management_system.pojo.Employees" >
+    <selectKey resultType="java.lang.Integer" keyProperty="employeesid" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into employeesTable
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="employeesname != null" >
+        employeesName,
+      </if>
+      <if test="employeesphonenumber != null" >
+        employeesPhoneNumber,
+      </if>
+      <if test="employeespasswordvalue != null" >
+        employeesPasswordValue,
+      </if>
+      <if test="employeesregistereddate != null" >
+        employeesRegisteredDate,
+      </if>
+      <if test="employeesregisteredtime != null" >
+        employeesRegisteredTime,
+      </if>
+      <if test="iscancellation != null" >
+        isCancellation,
+      </if>
+      <if test="employeescancellationdate != null" >
+        employeesCancellationDate,
+      </if>
+      <if test="employeescancellationtime != null" >
+        employeesCancellationTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="employeesname != null" >
+        #{employeesname,jdbcType=VARCHAR},
+      </if>
+      <if test="employeesphonenumber != null" >
+        #{employeesphonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="employeespasswordvalue != null" >
+        #{employeespasswordvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="employeesregistereddate != null" >
+        #{employeesregistereddate,jdbcType=VARCHAR},
+      </if>
+      <if test="employeesregisteredtime != null" >
+        #{employeesregisteredtime,jdbcType=VARCHAR},
+      </if>
+      <if test="iscancellation != null" >
+        #{iscancellation,jdbcType=INTEGER},
+      </if>
+      <if test="employeescancellationdate != null" >
+        #{employeescancellationdate,jdbcType=VARCHAR},
+      </if>
+      <if test="employeescancellationtime != null" >
+        #{employeescancellationtime,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.liupeng.catering_management_system.pojo.Employees" >
+    update employeesTable
+    <set >
+      <if test="employeesname != null" >
+        employeesName = #{employeesname,jdbcType=VARCHAR},
+      </if>
+      <if test="employeesphonenumber != null" >
+        employeesPhoneNumber = #{employeesphonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="employeespasswordvalue != null" >
+        employeesPasswordValue = #{employeespasswordvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="employeesregistereddate != null" >
+        employeesRegisteredDate = #{employeesregistereddate,jdbcType=VARCHAR},
+      </if>
+      <if test="employeesregisteredtime != null" >
+        employeesRegisteredTime = #{employeesregisteredtime,jdbcType=VARCHAR},
+      </if>
+      <if test="iscancellation != null" >
+        isCancellation = #{iscancellation,jdbcType=INTEGER},
+      </if>
+      <if test="employeescancellationdate != null" >
+        employeesCancellationDate = #{employeescancellationdate,jdbcType=VARCHAR},
+      </if>
+      <if test="employeescancellationtime != null" >
+        employeesCancellationTime = #{employeescancellationtime,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where employeesID = #{employeesid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.liupeng.catering_management_system.pojo.Employees" >
+    update employeesTable
+    set employeesName = #{employeesname,jdbcType=VARCHAR},
+      employeesPhoneNumber = #{employeesphonenumber,jdbcType=VARCHAR},
+      employeesPasswordValue = #{employeespasswordvalue,jdbcType=VARCHAR},
+      employeesRegisteredDate = #{employeesregistereddate,jdbcType=VARCHAR},
+      employeesRegisteredTime = #{employeesregisteredtime,jdbcType=VARCHAR},
+      isCancellation = #{iscancellation,jdbcType=INTEGER},
+      employeesCancellationDate = #{employeescancellationdate,jdbcType=VARCHAR},
+      employeesCancellationTime = #{employeescancellationtime,jdbcType=VARCHAR}
+    where employeesID = #{employeesid,jdbcType=INTEGER}
+  </update>
+</mapper>
