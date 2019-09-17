@@ -1,8 +1,8 @@
-package cn.liupeng.catering_management_system.mapper;
+package cn.liupeng.catering_management_system.service;
 
 import cn.liupeng.catering_management_system.pojo.Employees;
 
-public interface EmployeesMapper {
+public interface EmployeesService {
 
     // 通过员工ID删除员工信息
     int deleteByPrimaryKey(Integer employeesid);
@@ -19,4 +19,5 @@ public interface EmployeesMapper {
 
     // 更新员工信息
     int updateByPrimaryKey(Employees record);
+
 }

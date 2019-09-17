@@ -16,16 +16,17 @@
     employeesID, employeesName, employeesPhoneNumber, employeesPasswordValue, employeesRegisteredDate, 
     employeesRegisteredTime, isCancellation, employeesCancellationDate, employeesCancellationTime
   </sql>
+
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from employeesTable
-    where employeesID = #{employeesid,jdbcType=INTEGER}
+    from employeesTable where employeesID = #{employeesid,jdbcType=INTEGER}
   </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from employeesTable
-    where employeesID = #{employeesid,jdbcType=INTEGER}
+    delete from employeesTable where employeesID = #{employeesid,jdbcType=INTEGER}
   </delete>
+
   <insert id="insert" parameterType="cn.liupeng.catering_management_system.pojo.Employees" >
     <selectKey resultType="java.lang.Integer" keyProperty="employeesid" order="AFTER" >
       SELECT LAST_INSERT_ID()
@@ -41,6 +42,7 @@
       #{employeescancellationdate,jdbcType=VARCHAR}, #{employeescancellationtime,jdbcType=VARCHAR}
       )
   </insert>
+
   <insert id="insertSelective" parameterType="cn.liupeng.catering_management_system.pojo.Employees" >
     <selectKey resultType="java.lang.Integer" keyProperty="employeesid" order="AFTER" >
       SELECT LAST_INSERT_ID()
@@ -99,6 +101,7 @@
       </if>
     </trim>
   </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="cn.liupeng.catering_management_system.pojo.Employees" >
     update employeesTable
     <set >
@@ -129,6 +132,7 @@
     </set>
     where employeesID = #{employeesid,jdbcType=INTEGER}
   </update>
+
   <update id="updateByPrimaryKey" parameterType="cn.liupeng.catering_management_system.pojo.Employees" >
     update employeesTable
     set employeesName = #{employeesname,jdbcType=VARCHAR},
@@ -141,4 +145,5 @@
       employeesCancellationTime = #{employeescancellationtime,jdbcType=VARCHAR}
     where employeesID = #{employeesid,jdbcType=INTEGER}
   </update>
+
 </mapper>
