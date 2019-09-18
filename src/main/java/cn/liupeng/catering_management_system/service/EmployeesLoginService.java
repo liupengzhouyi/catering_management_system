@@ -1,11 +1,8 @@
-package cn.liupeng.catering_management_system.mapper;
+package cn.liupeng.catering_management_system.service;
 
-import cn.liupeng.catering_management_system.pojo.Employees;
 import cn.liupeng.catering_management_system.pojo.EmployeesLogin;
 
-import java.util.List;
-
-public interface EmployeesLoginMapper {
+public interface EmployeesLoginService {
 
     int deleteByPrimaryKey(Integer employeesloginid);
 
