@@ -33,4 +33,12 @@ public class EmployeesController {
         this.employeesService.insert(employees);
         return "success";
     }
+
+    @ApiOperation("获取用户接口")
+    @ResponseBody
+    @PostMapping("/get")
+    public Employees getEmployees(int employeesID) {
+        Employees employees = this.employeesService.selectByPrimaryKey(employeesID);
+        return employees;
+    }
 }
