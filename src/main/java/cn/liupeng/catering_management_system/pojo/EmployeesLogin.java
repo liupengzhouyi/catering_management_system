@@ -1,18 +1,29 @@
 package cn.liupeng.catering_management_system.pojo;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModelProperty;
+
+@Api(value = "员工登录")
 public class EmployeesLogin {
+    @ApiModelProperty(value = "员工登录ID")
     private Integer employeesloginid;
 
+    @ApiModelProperty(value = "员工ID")
     private String employeesid;
 
+    @ApiModelProperty(value = "员工登录时间")
     private String logindatetime;
 
+    @ApiModelProperty(value = "登录IP地址")
     private String ipaddress;
 
+    @ApiModelProperty(value = "登录定位经度")
     private Double longitude;
 
+    @ApiModelProperty(value = "登录定位纬度")
     private Double latitude;
 
+    @ApiModelProperty(value = "登录结果")
     private Integer loginresults;
 
     public Integer getEmployeesloginid() {
