@@ -17,7 +17,7 @@ spring:
     # 驱动
     driver-class-name: com.mysql.cj.jdbc.Driver
 
-    url: jdbc:mysql://114.116.4.196:3306/database_for_web?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+    url: jdbc:mysql://114.116.4.196:3306/cateringManagementSystemDataBase?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
     username: root
     password: Lp184126
 
