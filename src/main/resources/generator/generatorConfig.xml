@@ -45,18 +45,18 @@
 
         <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
         <!--员工注册表-->
-        <!--<table tableName="employeesTable" domainObjectName="Employees"
+        <table tableName="employeesTable" domainObjectName="Employees"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"
                enableSelectByExample="false"
                selectByExampleQueryId="false">
             <property name="useActualColumnNames" value="false"/>
-            &lt;!&ndash; 数据库表主键 &ndash;&gt;
+            <!-- 数据库表主键 -->
             <generatedKey column="employeesID" sqlStatement="Mysql" identity="true"/>
         </table>
 
-        &lt;!&ndash;员工登录表&ndash;&gt;
+        <!--员工登录表-->
         <table tableName="employeesLoginTable" domainObjectName="EmployeesLogin"
                enableCountByExample="flase"
                enableUpdateByExample="false"
@@ -64,12 +64,13 @@
                enableSelectByExample="false"
                selectByExampleQueryId="false">
             <property name="useActualColumnNames" value="false"/>
-            &lt;!&ndash; 数据库表主键 &ndash;&gt;
+            <!-- 数据库表主键 -->
             <generatedKey column="employeesLoginID" sqlStatement="Mysql" identity="true"/>
-        </table>-->
+        </table>
 
         <!--员工修改密码表-->
-        <table tableName="employeesSettingPasswordTable" domainObjectName="EmployeesSettingPassword"
+        <table tableName="employeesSettingPasswordTable"
+               domainObjectName="EmployeesSettingPassword"
                enableCountByExample="flase"
                enableUpdateByExample="false"
                enableDeleteByExample="flase"
