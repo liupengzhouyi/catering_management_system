@@ -1,9 +1,10 @@
 package cn.liupeng.catering_management_system.pojo;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-@Api(value = "员工登录")
+@ApiModel(value = "员工登录")
 public class EmployeesLogin {
     @ApiModelProperty(value = "员工登录ID")
     private Integer employeesloginid;

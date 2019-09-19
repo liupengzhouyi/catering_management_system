@@ -39,4 +39,6 @@ public class EmployeesLoginController {
     public EmployeesLogin getEmployeesLogoinBy(Integer employeesLoginID) {
         return this.getEmployeesLoginService().selectByPrimaryKey(employeesLoginID);
     }
+
+
 }
