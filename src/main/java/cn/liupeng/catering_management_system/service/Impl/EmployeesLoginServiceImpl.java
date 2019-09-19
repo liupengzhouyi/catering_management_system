@@ -1,11 +1,24 @@
 package cn.liupeng.catering_management_system.service.Impl;
 
+import cn.liupeng.catering_management_system.mapper.EmployeesLoginMapper;
 import cn.liupeng.catering_management_system.pojo.EmployeesLogin;
 import cn.liupeng.catering_management_system.service.EmployeesLoginService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class EmployeesLoginServiceImpl implements EmployeesLoginService {
+
+    @Autowired
+    private EmployeesLoginMapper employeesLoginMapper;
+
+    public EmployeesLoginMapper getEmployeesLoginMapper() {
+        return employeesLoginMapper;
+    }
+
+    public void setEmployeesLoginMapper(EmployeesLoginMapper employeesLoginMapper) {
+        this.employeesLoginMapper = employeesLoginMapper;
+    }
 
     @Override
     public int deleteByPrimaryKey(Integer employeesloginid) {
@@ -15,7 +28,7 @@ public class EmployeesLoginServiceImpl implements EmployeesLoginService {
     // 添加员工登录信息
     @Override
     public int insert(EmployeesLogin record) {
-        return 0;
+        return this.getEmployeesLoginMapper().insert(record);
     }
 
     @Override
@@ -26,7 +39,7 @@ public class EmployeesLoginServiceImpl implements EmployeesLoginService {
     // 获取登录记录
     @Override
     public EmployeesLogin selectByPrimaryKey(Integer employeesloginid) {
-        return null;
+        return this.getEmployeesLoginMapper().selectByPrimaryKey(employeesloginid);
     }
 
     @Override
