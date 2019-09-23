@@ -1,6 +1,5 @@
 package cn.liupeng.catering_management_system.pojo;
 
-
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -82,5 +81,18 @@ public class EmployeesSettingPassword {
 
     public void setSettingresults(Integer settingresults) {
         this.settingresults = settingresults;
+    }
+
+    @Override
+    public String toString() {
+        return "EmployeesSettingPassword{" +
+                "settingpasswordid=" + settingpasswordid +
+                ", employeesid='" + employeesid + '\'' +
+                ", settingdatetime='" + settingdatetime + '\'' +
+                ", ipadress='" + ipadress + '\'' +
+                ", longitude=" + longitude +
+                ", latitude=" + latitude +
+                ", settingresults=" + settingresults +
+                '}';
     }
 }

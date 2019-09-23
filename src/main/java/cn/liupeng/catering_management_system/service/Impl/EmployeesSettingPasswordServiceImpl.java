@@ -1,7 +1,6 @@
 package cn.liupeng.catering_management_system.service.Impl;
 
 import cn.liupeng.catering_management_system.mapper.EmployeesSettingPasswordMapper;
-import cn.liupeng.catering_management_system.pojo.Employees;
 import cn.liupeng.catering_management_system.pojo.EmployeesSettingPassword;
 import cn.liupeng.catering_management_system.service.EmployeesSettingPasswordService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +12,22 @@ public class EmployeesSettingPasswordServiceImpl implements EmployeesSettingPass
     @Autowired
     private EmployeesSettingPasswordMapper employeesSettingPasswordMapper;
 
-    // 添加员工登录信息
+    public EmployeesSettingPasswordMapper getEmployeesSettingPasswordMapper() {
+        return employeesSettingPasswordMapper;
+    }
+
+    public void setEmployeesSettingPasswordMapper(EmployeesSettingPasswordMapper employeesSettingPasswordMapper) {
+        this.employeesSettingPasswordMapper = employeesSettingPasswordMapper;
+    }
+
+    @Override
+    public int deleteByPrimaryKey(Integer settingpasswordid) {
+        return this.getEmployeesSettingPasswordMapper().deleteByPrimaryKey(settingpasswordid);
+    }
+
     @Override
     public int insert(EmployeesSettingPassword record) {
-        return this.employeesSettingPasswordMapper.insert(record);
+        return this.getEmployeesSettingPasswordMapper().insert(record);
     }
 
     @Override
@@ -24,9 +35,18 @@ public class EmployeesSettingPasswordServiceImpl implements EmployeesSettingPass
         return 0;
     }
 
-    // 获取用户的修改密码记录
     @Override
-    public EmployeesSettingPassword selest(Employees employees) {
-        return this.employeesSettingPasswordMapper.selest(employees);
+    public EmployeesSettingPassword selectByPrimaryKey(Integer settingpasswordid) {
+        return this.getEmployeesSettingPasswordMapper().selectByPrimaryKey(settingpasswordid);
+    }
+
+    @Override
+    public int updateByPrimaryKeySelective(EmployeesSettingPassword record) {
+        return 0;
+    }
+
+    @Override
+    public int updateByPrimaryKey(EmployeesSettingPassword record) {
+        return this.getEmployeesSettingPasswordMapper().updateByPrimaryKey(record);
     }
 }

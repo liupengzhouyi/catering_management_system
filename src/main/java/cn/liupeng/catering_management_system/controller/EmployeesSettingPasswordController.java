@@ -32,14 +32,16 @@ public class EmployeesSettingPasswordController {
     @ResponseBody
     @PostMapping(value = "/add")
     public int addEmployeesSettingPassword(EmployeesSettingPassword employeesSettingPassword) {
+        System.out.println("开始添加员工修改密码记录");
+        System.out.println(employeesSettingPassword.toString());
         return this.getEmployeesSettingPasswordService().insert(employeesSettingPassword);
     }
-
 
     @ApiOperation("获取员工修改密码记录")
     @ResponseBody
     @PostMapping(value = "/get")
-    public EmployeesSettingPassword getEmployeesSettingPassword(Employees employees) {
-        return this.getEmployeesSettingPasswordService().selest(employees);
+    public EmployeesSettingPassword getEmployeesSettingPassword(Integer integer) {
+        return this.getEmployeesSettingPasswordService().selectByPrimaryKey(integer);
     }
+
 }

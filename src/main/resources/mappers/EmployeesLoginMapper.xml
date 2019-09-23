@@ -15,7 +15,10 @@
     employeesLoginID, employeesID, loginDateTime, IPAddress, longitude, latitude, loginResults
   </sql>
 
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select
+          id="selectByPrimaryKey"
+          resultMap="BaseResultMap"
+          parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from employeesLoginTable

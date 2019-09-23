@@ -67,7 +67,6 @@
             <!-- 数据库表主键 -->
             <generatedKey column="employeesLoginID" sqlStatement="Mysql" identity="true"/>
         </table>
-
         <!--员工修改密码表-->
         <table tableName="employeesSettingPasswordTable"
                domainObjectName="EmployeesSettingPassword"
