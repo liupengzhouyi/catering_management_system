@@ -6,10 +6,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Api(tags = "员工相关接口", description = "提供员工的增删改查方法")
 @RestController
@@ -28,16 +25,16 @@ public class EmployeesController {
 
     @ApiOperation("新增用户接口")
     @ResponseBody
-    @PostMapping("/add")
-    public String addEmployees(Employees employees) {
+    @RequestMapping(value = "/add", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public String addEmployees(@RequestBody Employees employees) {
         this.employeesService.insert(employees);
         return "success";
     }
 
     @ApiOperation("获取用户接口")
     @ResponseBody
-    @PostMapping("/get")
-    public Employees getEmployees(int employeesID) {
+    @RequestMapping(value = "/get")
+    public Employees getEmployees(@RequestBody int employeesID) {
         Employees employees = this.employeesService.selectByPrimaryKey(employeesID);
         return employees;
     }

@@ -8,11 +8,9 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 @Api(tags = "员工记录修改密码相关接口", description = "提供员工添加修改密码的添加方法")
 @RequestMapping(value = "/employeesSettingPassword")
 public class EmployeesSettingPasswordController {
@@ -30,8 +28,8 @@ public class EmployeesSettingPasswordController {
 
     @ApiOperation("添加员工修改密码记录")
     @ResponseBody
-    @PostMapping(value = "/add")
-    public int addEmployeesSettingPassword(EmployeesSettingPassword employeesSettingPassword) {
+    @RequestMapping(value = "/add", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public int addEmployeesSettingPassword(@RequestBody EmployeesSettingPassword employeesSettingPassword) {
         System.out.println("开始添加员工修改密码记录");
         System.out.println(employeesSettingPassword.toString());
         return this.getEmployeesSettingPasswordService().insert(employeesSettingPassword);
@@ -39,9 +37,11 @@ public class EmployeesSettingPasswordController {
 
     @ApiOperation("获取员工修改密码记录")
     @ResponseBody
-    @PostMapping(value = "/get")
-    public EmployeesSettingPassword getEmployeesSettingPassword(Integer integer) {
+    @RequestMapping(value = "/get", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public EmployeesSettingPassword getEmployeesSettingPassword(@RequestBody Integer integer) {
         return this.getEmployeesSettingPasswordService().selectByPrimaryKey(integer);
     }
+
+
 
 }
