@@ -137,4 +137,14 @@ public class EmployeesPosition {
     public void setSalary(Double salary) {
         this.salary = salary;
     }
+
+    @Override
+    public String toString() {
+        return "EmployeesPosition{" +
+                "positionid=" + positionid +
+                ", positionname='" + positionname + '\'' +
+                ", positiondescription='" + positiondescription + '\'' +
+                ", salary=" + salary +
+                '}';
+    }
 }
