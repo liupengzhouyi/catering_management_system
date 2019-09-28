@@ -5,11 +5,13 @@ import cn.liupeng.catering_management_system.pojo.EmployeesPosition;
 import cn.liupeng.catering_management_system.service.EmployeesPositionMapperService;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class EmployeesPositionMapperServiceImpl implements EmployeesPositionMapperService {
 
+    @Autowired
     // 员工职位Mapper
     private EmployeesPositionMapper employeesPositionMapper;
 
