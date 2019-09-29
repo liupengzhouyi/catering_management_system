@@ -1,9 +1,7 @@
 package cn.liupeng.catering_management_system.controller;
 
-import cn.liupeng.catering_management_system.mapper.EmployeesPositionMapper;
 import cn.liupeng.catering_management_system.pojo.EmployeesPosition;
-import cn.liupeng.catering_management_system.service.EmployeesPositionMapperService;
-import cn.liupeng.catering_management_system.service.Impl.EmployeesPositionMapperServiceImpl;
+import cn.liupeng.catering_management_system.service.Impl.EmployeesPositionServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +13,10 @@ import org.springframework.web.bind.annotation.*;
 public class EmployeesPositionController {
     
     @Autowired
-    private EmployeesPositionMapperServiceImpl employeesPositionMapperService;
+    private EmployeesPositionServiceImpl employeesPositionMapperService;
 
     @ApiOperation(value = "获取员工职位管理功能中服务层的服务器")
-    public EmployeesPositionMapperServiceImpl getEmployeesPositionMapperService() {
+    public EmployeesPositionServiceImpl getEmployeesPositionMapperService() {
         return employeesPositionMapperService;
     }
 

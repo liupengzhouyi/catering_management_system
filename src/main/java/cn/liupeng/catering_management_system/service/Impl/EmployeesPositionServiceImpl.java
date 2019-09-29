@@ -2,14 +2,12 @@ package cn.liupeng.catering_management_system.service.Impl;
 
 import cn.liupeng.catering_management_system.mapper.EmployeesPositionMapper;
 import cn.liupeng.catering_management_system.pojo.EmployeesPosition;
-import cn.liupeng.catering_management_system.service.EmployeesPositionMapperService;
-import io.swagger.annotations.ApiModelProperty;
-import io.swagger.annotations.ApiOperation;
+import cn.liupeng.catering_management_system.service.EmployeesPositionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EmployeesPositionMapperServiceImpl implements EmployeesPositionMapperService {
+public class EmployeesPositionServiceImpl implements EmployeesPositionService {
 
     @Autowired
     // 员工职位Mapper

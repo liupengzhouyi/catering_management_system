@@ -43,7 +43,42 @@
 
         <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
         <!--员工注册表-->
-        <table tableName="employeesTable" domainObjectName="Employees"
+        <!--<table tableName="employeesTable" domainObjectName="Employees"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="false"/>
+            &lt;!&ndash; 数据库表主键 &ndash;&gt;
+            <generatedKey column="employeesID" sqlStatement="Mysql" identity="true"/>
+        </table>-->
+
+        <!--员工登录表-->
+        <!--<table tableName="employeesLoginTable" domainObjectName="EmployeesLogin"
+               enableCountByExample="flase"
+               enableUpdateByExample="false"
+               enableDeleteByExample="flase"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="false"/>
+            &lt;!&ndash; 数据库表主键 &ndash;&gt;
+            <generatedKey column="employeesLoginID" sqlStatement="Mysql" identity="true"/>
+        </table>-->
+
+        <!--员工职位表-->
+        <!--<table tableName="employeesPositionTable" domainObjectName="EmployeesPosition"
+               enableCountByExample="flase"
+               enableUpdateByExample="false"
+               enableDeleteByExample="flase"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="false"/>
+            &lt;!&ndash; 数据库表主键 &ndash;&gt;
+            <generatedKey column="positionID" sqlStatement="Mysql" identity="true"/>
+        </table>-->
+
+        <table tableName="dishesTable" domainObjectName="Dishes"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"
@@ -51,32 +86,9 @@
                selectByExampleQueryId="false">
             <property name="useActualColumnNames" value="false"/>
             <!-- 数据库表主键 -->
-            <generatedKey column="employeesID" sqlStatement="Mysql" identity="true"/>
+            <generatedKey column="dishesID" sqlStatement="Mysql" identity="true"/>
         </table>
 
-        <!--员工登录表-->
-        <table tableName="employeesLoginTable" domainObjectName="EmployeesLogin"
-               enableCountByExample="flase"
-               enableUpdateByExample="false"
-               enableDeleteByExample="flase"
-               enableSelectByExample="false"
-               selectByExampleQueryId="false">
-            <property name="useActualColumnNames" value="false"/>
-            <!-- 数据库表主键 -->
-            <generatedKey column="employeesLoginID" sqlStatement="Mysql" identity="true"/>
-        </table>
-
-        <!--员工职位表-->
-        <table tableName="employeesPositionTable" domainObjectName="EmployeesPosition"
-               enableCountByExample="flase"
-               enableUpdateByExample="false"
-               enableDeleteByExample="flase"
-               enableSelectByExample="false"
-               selectByExampleQueryId="false">
-            <property name="useActualColumnNames" value="false"/>
-            <!-- 数据库表主键 -->
-            <generatedKey column="positionID" sqlStatement="Mysql" identity="true"/>
-        </table>
     </context>
 
 </generatorConfiguration>
