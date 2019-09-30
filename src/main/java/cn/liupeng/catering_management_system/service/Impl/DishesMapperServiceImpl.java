@@ -3,7 +3,7 @@ package cn.liupeng.catering_management_system.service.Impl;
 import cn.liupeng.catering_management_system.mapper.DishesMapper;
 import cn.liupeng.catering_management_system.pojo.Dishes;
 import cn.liupeng.catering_management_system.service.DishesMapperService;
-import io.swagger.annotations.ApiOperation;
+// import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

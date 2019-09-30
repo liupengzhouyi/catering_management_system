@@ -18,31 +18,37 @@ public class DishesController {
     @Autowired
     private DishesMapperServiceImpl dishesMapperService;
 
-    public DishesMapperServiceImpl getDishesMapperService() {
+    public DishesMapperServiceImpl getDishesMapperServiceImpl() {
         return dishesMapperService;
     }
 
     @ApiOperation("新增菜品接口")
     @RequestMapping(value = "/add")
     public int addDishes(Dishes dishes) {
-        return this.getDishesMapperService().insert(dishes);
+        System.out.println("----------------------");
+        System.out.println(dishes.toString());
+        System.out.println("-----------------------");
+        return this.getDishesMapperServiceImpl().insert(dishes);
     }
 
     @ApiOperation("删除菜品接口")
-    @RequestMapping(value = "/add")
+    @RequestMapping(value = "/delete")
     public int deleteDishes(String dishesID) {
-        return this.getDishesMapperService().deleteByPrimaryKey(dishesID);
+        return this.getDishesMapperServiceImpl().deleteByPrimaryKey(dishesID);
     }
 
     @ApiOperation("更新菜品接口")
-    @RequestMapping(value = "/add")
+    @RequestMapping(value = "/update")
     public int updateDishes(Dishes dishes) {
-        return this.getDishesMapperService().updateByPrimaryKey(dishes);
+        return this.getDishesMapperServiceImpl().updateByPrimaryKey(dishes);
     }
 
     @ApiOperation("查找菜品接口")
-    @RequestMapping(value = "/add")
+    @RequestMapping(value = "/find")
     public Dishes findDishes(String dishesID) {
-        return this.getDishesMapperService().selectByPrimaryKey(dishesID);
+        System.out.println("----------------------");
+        System.out.println("dishesID:" + dishesID);
+        System.out.println("-----------------------");
+        return this.getDishesMapperServiceImpl().selectByPrimaryKey(dishesID);
     }
 }
