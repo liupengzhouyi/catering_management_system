@@ -7,7 +7,9 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -23,8 +25,8 @@ public class DishesController {
     }
 
     @ApiOperation("新增菜品接口")
-    @RequestMapping(value = "/add")
-    public int addDishes(Dishes dishes) {
+    @RequestMapping(value = "/add", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public int addDishes(@RequestBody Dishes dishes) {
         System.out.println("----------------------");
         System.out.println(dishes.toString());
         System.out.println("-----------------------");
@@ -32,20 +34,20 @@ public class DishesController {
     }
 
     @ApiOperation("删除菜品接口")
-    @RequestMapping(value = "/delete")
-    public int deleteDishes(String dishesID) {
+    @RequestMapping(value = "/delete", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public int deleteDishes(@RequestBody String dishesID) {
         return this.getDishesMapperServiceImpl().deleteByPrimaryKey(dishesID);
     }
 
     @ApiOperation("更新菜品接口")
-    @RequestMapping(value = "/update")
-    public int updateDishes(Dishes dishes) {
+    @RequestMapping(value = "/update", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public int updateDishes(@RequestBody Dishes dishes) {
         return this.getDishesMapperServiceImpl().updateByPrimaryKey(dishes);
     }
 
     @ApiOperation("查找菜品接口")
-    @RequestMapping(value = "/find")
-    public Dishes findDishes(String dishesID) {
+    @RequestMapping(value = "/find", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public Dishes findDishes(@RequestBody String dishesID) {
         System.out.println("----------------------");
         System.out.println("dishesID:" + dishesID);
         System.out.println("-----------------------");
